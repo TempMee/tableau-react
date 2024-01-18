@@ -8183,7 +8183,9 @@ global.tableauSoftware = global.tableauSoftware || {};
     },
     handleVizLoad: function VizImpl$HandleVizLoad() {
       if (ss.isNullOrUndefined(this.$vizSize)) {
-        this.$setFrameSize(this.$initialAvailableSize.width + 'px', this.$initialAvailableSize.height + 'px');
+        if (this.$initialAvailableSize) {
+          this.$setFrameSize(this.$initialAvailableSize.width + 'px', this.$initialAvailableSize.height + 'px');
+        }
         this.$show();
       }
       if (ss.isValue(this.$staticImage)) {
